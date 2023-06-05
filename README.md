@@ -15,6 +15,8 @@ A tutorial for designing full-stack Non-Fungible Token (NFT) minting application
 ## Overview
 This tutorial will walk you through the process of designing a full-stack Non-Fungible Token (NFT) minting application. The application will allow users to mint NFTs, view their NFTs, and transfer their NFTs to other users. The application will be built using React.js, Solidity, and OpenZeppelin. The application will also use the Chai Assertion Library for testing. The application will be deployed to the Local Ethreum / Rinkeby test network.
 
+![image](./docs/figures/architecture.png)
+
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Overview](#overview)
