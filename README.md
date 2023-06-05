@@ -16,18 +16,23 @@ A tutorial for designing full-stack Non-Fungible Token (NFT) minting application
 This tutorial will walk you through the process of designing a full-stack Non-Fungible Token (NFT) minting application. The application will allow users to mint NFTs, view their NFTs, and transfer their NFTs to other users. The application will be built using React.js, Solidity, and OpenZeppelin. The application will also use the Chai Assertion Library for testing. The application will be deployed to the Local Ethreum / Rinkeby test network.
 
 ## Table of Contents
-- [Setup](#setup)
-- [Dependencies](#dependencies)
-- [Ganache](#ganache)
-- [Compile](#compile)
+- [Prerequisites](#prerequisites)
+- [Overview](#overview)
+- [Step-by-Step Guide](#step-by-step-guide)
+- [Create your first Ethereum Blockchain using Ganache UI or ganache-cli](#create-your-first-ethereum-blockchain-using-ganache-ui-or-ganache-cli)
+- [Connect Metamask to your local Ethereum Blockchain](#connect-metamask-to-your-local-ethereum-blockchain)
+- [Setup IPFS Storage](#setup-ipfs-storage)
+- [Deploy Smart Contract to Local Ethereum Blockchain](#deploy-smart-contract-to-local-ethereum-blockchain)
+- [Deploy Smart Contract to Rinkeby Test Network](#deploy-smart-contract-to-rinkeby-test-network)
+- [Client-side](#client-side)
 
-## Setup
+## Step-by-Step Guide
+
 - Clone the repo to your local machine
 ```bash
 git clone https://github.com/lamnd09/nft-minting-tutorial.git
 cd nft-minting-tutorial
 ```
-
 - cd into the client directory
 ```bash
 cd client
@@ -38,22 +43,6 @@ npm start
 ```bash
 npm install 
 ```
-
-
-- Install dependencies
-- Create a .env file
-- Create a .secret file
-
-## Dependencies
-npm init 
-npm install @openzeppelin/contracts
-npm install chai
-@faker-js/faker
-npm install ipfs-http-client
-npm install react-router-dom
-npm install --save styled-components
-
-## Step-by-Step Guide
 
 ### Create your first Ethereum Blockchain using Ganache UI or ganache-cli
 - Download and install Ganache UI or ganache-cli from https://www.trufflesuite.com/ganache
@@ -334,10 +323,6 @@ Set your inputs as below:
 
 Click on the `Mint` button, you will see the transaction is created as below:
 ![dashboard](./docs/figures/nft-minted.png)
-
-## Run
-
-https://github.com/ipfs-shipyard/ipfs-primer/blob/12d7298f436fa83e8395ade6969d2a4df298b334/install-ipfs/lessons/download-and-install.md
 
 
 ## References
