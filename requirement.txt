@@ -1,0 +1,6 @@
+@openzeppelin/contracts
+@openzeppelin/test-helpers
+web3
+truffle
+ganache-cli
+ipfs-http-client
