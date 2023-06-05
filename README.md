@@ -162,6 +162,143 @@ ipfs cat <hash of your file>
 ```
 
 ### Compile and Deploy the Smart Contract to your local Ethereum Blockchain
+
+- Design the Smart Contract
+
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyNFT is ERC721URIStorage, Ownable {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+
+    // Mapping to track the rewards received by each user
+    mapping(address => uint256) private rewardsReceived;
+    // Mapping to track the NFTs minted by each user
+    mapping(address => uint256[]) private userMintedTokens;
+    // Mapping to check if a token has already been minted
+    mapping(string => bool) private tokenExists;
+
+    constructor() public ERC721("MyNFT", "NFT") {}
+
+    function mintNFT(address recipient, string memory tokenURI)
+        public
+        returns (uint256)
+    {
+        require(!tokenExists[tokenURI], "Token already exists");
+
+        _tokenIds.increment();
+
+        uint256 newItemId = _tokenIds.current();
+        _mint(recipient, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+
+        // Reward the user with 1 ETH.
+        rewardUser(recipient);
+
+        // Track the NFTs minted by the user
+        userMintedTokens[recipient].push(newItemId);
+
+        // Mark the token as minted
+        tokenExists[tokenURI] = true;
+
+        return newItemId;
+    }
+
+    function rewardUser(address user) internal {
+        uint256 rewardAmount = 1 ether;
+
+        require(address(this).balance >= rewardAmount, "Not enough Ether to reward user");
+
+        // Update the rewardsReceived mapping
+        rewardsReceived[user] += rewardAmount;
+
+        // Transfer the reward to the user.
+        (bool success, ) = payable(user).call{value: rewardAmount}("");
+        require(success, "Failed to send Ether");
+
+        emit UserRewarded(user, rewardAmount);
+    }
+
+    // This function allows the contract owner to deposit ETH into the contract
+    function depositETH() public payable {}
+
+    // This function will allow the owner to withdraw all the remaining ETH.
+    function withdrawETH() public onlyOwner {
+        uint balance = address(this).balance;
+        payable(owner()).transfer(balance);
+    }
+
+    // Function to get the total amount of rewards an user received
+    function totalRewards(address user) public view returns (uint256) {
+        return rewardsReceived[user];
+    }
+
+    // Function to get all tokens minted by a user
+    function getMintedTokens(address user) public view returns (uint256[] memory) {
+        return userMintedTokens[user];
+    }
+
+    // Function to check if a token with a given URI already exists
+    function checkTokenExists(string memory tokenURI) public view returns (bool) {
+        return tokenExists[tokenURI];
+    }
+
+    // Event emitted when a user is rewarded
+    event UserRewarded(address indexed user, uint256 rewardAmount);
+}
+```
+Let me explain line-by-line of the code 
+Certainly, let's go line by line:
+
+1. `pragma solidity ^0.8.17;`: This line tells that the source code is written in Solidity language version 0.8.17.
+
+2. The next three lines import external smart contracts from the OpenZeppelin library, which is a framework of reusable and secure smart contracts in the Solidity language.
+
+   - `import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";` imports a standard implementation of an ERC721 token with URI storage.
+   
+   - `import "@openzeppelin/contracts/utils/Counters.sol";` imports a utility library for safe counter arithmetic.
+   
+   - `import "@openzeppelin/contracts/access/Ownable.sol";` imports a contract that provides basic authorization control functions. This simplifies the implementation of "user permissions".
+
+3. `contract MyNFT is ERC721URIStorage, Ownable {`: This line declares the smart contract named "MyNFT", which inherits from the ERC721URIStorage and Ownable contracts.
+
+4. `using Counters for Counters.Counter;`: This line attaches the Counters library functions to the Counters.Counter struct.
+
+5. `Counters.Counter private _tokenIds;`: Here, _tokenIds is a state variable of type Counter that will keep track of the total number of tokens minted by the contract.
+
+6. `mapping(address => uint256) private rewardsReceived;`: This line declares a state variable `rewardsReceived`, which is a mapping from addresses to integers. It will keep track of the total rewards received by each address.
+
+7. `mapping(address => uint256[]) private userMintedTokens;`: This line declares a state variable `userMintedTokens`, which is a mapping from addresses to arrays of integers. It will keep track of all the tokens minted by each address.
+
+8. `mapping(string => bool) private tokenExists;`: This line declares a state variable `tokenExists`, which is a mapping from strings to booleans. It will help prevent the minting of the same token URI more than once.
+
+9. `constructor() public ERC721("MyNFT", "NFT") {}`: This is the constructor of the contract which is called when the contract is deployed. It calls the constructor of the ERC721 token with a name and a symbol.
+
+10. `mintNFT` is a public function that allows users to mint a new NFT. The function first checks if the tokenURI already exists, increments the tokenIds counter, mints the new token, sets its URI, rewards the user, and keeps track of the newly minted token.
+
+11. `rewardUser` is an internal function that rewards a user with 1 Ether after minting an NFT. It first checks if the contract has enough balance to reward, then sends the Ether and emits a `UserRewarded` event.
+
+12. `depositETH` is a public payable function that allows the owner to deposit Ether into the contract.
+
+13. `withdrawETH` is a public function that allows the owner to withdraw all the Ether from the contract.
+
+14. `totalRewards` is a view function that returns the total rewards received by a user.
+
+15. `getMintedTokens` is a view function that returns all tokens minted by a user.
+
+16. `checkTokenExists` is a view function that checks if a token with a given URI already exists.
+
+17. `event UserRewarded` is an event that gets emitted whenever a user is rewarded. 
+
+
+
 - Compile the smart contract
 ```bash
 truffle compile
