@@ -5,7 +5,7 @@ A tutorial for designing full-stack Non-Fungible Token (NFT) minting application
 - Node.js ^v16.20.0
 - Metamask
 - Ganache UI or ganache-cli
-- Truffle@latest
+- Truffle@latest framework
 - InterPlanetary File System / IPFS
 - React.js
 - Solidity
@@ -36,7 +36,7 @@ npm start
 ```
 - Install dependencies
 ```bash
-
+npm install 
 ```
 
 
@@ -53,89 +53,27 @@ npm install ipfs-http-client
 npm install react-router-dom
 npm install --save styled-components
 
-## Ganache
+## Step-by-Step Guide
 
-ganache-cli -a 20 -e 1000  -m "test test test test test test test test test test test okay" -i 1337
-
-
-http://localhost:8080/ipfs/QmZNEyAxoq55x3jZofjmCdqG1ujpYaKh8TGNhLjdkwiHqz
-
-## Compile
+### Create your first Ethereum Blockchain using Ganache UI or ganache-cli
+- Download and install Ganache UI or ganache-cli from https://www.trufflesuite.com/ganache
+ or just run 
+```bash
+npm install -g ganache 
 ```
-truffle compile
+To check full options of ganache-cli, run 
+```bash
+ganache-cli --help
 ```
 
-### install ifps
+next, in order to create a local Ethereum Blockchain, run 
+```bash
+ganache-cli
+```
+You should see the output as below: 
 
-npm install ipfs-http-client
-
-
-## Run
-
-https://github.com/ipfs-shipyard/ipfs-primer/blob/12d7298f436fa83e8395ade6969d2a4df298b334/install-ipfs/lessons/download-and-install.md
-
-
-
-lam.nguyenduc92@liam-dev:~/workspace/nft-minting-tutorial$ npx create-react-app client
-
-Creating a new React app in /home/lam.nguyenduc92/workspace/nft-minting-tutorial/client.
-
-Installing packages. This might take a couple of minutes.
-Installing react, react-dom, and react-scripts with cra-template...
-
-
-added 1434 packages in 22s
-
-234 packages are looking for funding
-  run `npm fund` for details
-
-Installing template dependencies using npm...
-
-added 62 packages, and changed 1 package in 4s
-
-234 packages are looking for funding
-  run `npm fund` for details
-Removing template package using npm...
-
-
-removed 1 package, and audited 1496 packages in 2s
-
-234 packages are looking for funding
-  run `npm fund` for details
-
-6 high severity vulnerabilities
-
-To address all issues (including breaking changes), run:
-  npm audit fix --force
-
-Run `npm audit` for details.
-
-Success! Created client at /home/lam.nguyenduc92/workspace/nft-minting-tutorial/client
-Inside that directory, you can run several commands:
-
-  npm start
-    Starts the development server.
-
-  npm run build
-    Bundles the app into static files for production.
-
-  npm test
-    Starts the test runner.
-
-  npm run eject
-    Removes this tool and copies build dependencies, configuration files
-    and scripts into the app directory. If you do this, you can’t go back!
-
-We suggest that you begin by typing:
-
-  cd client
-  npm start
-
-Happy hacking!
-
-
-
-
+```bash
+Ganache CLI v6.12.2 (ganache-core: 2.13.2)
 Available Accounts
 ==================
 (0) 0x8dE930dbAd0D99759Db57C2F906010f87D4185FF (1000 ETH)
@@ -144,20 +82,7 @@ Available Accounts
 (3) 0x363404432Aa9d4EF5629f80DAcFF0CD389dd38c8 (1000 ETH)
 (4) 0x5c22Fd2D3E9eB70EF3585E0F895eE4d076d04414 (1000 ETH)
 (5) 0xF221a97B436f16b8a2916eA232f45D5f5C5DAD10 (1000 ETH)
-(6) 0xbB1B81B162671DA3c7F1d226f8223d31219AC25b (1000 ETH)
-(7) 0x8479FA625398E9999CE68cebd52ba72D3B1edF35 (1000 ETH)
-(8) 0x34A24CBA2FfE10b9e58E5B422ac9a2B1D1385974 (1000 ETH)
-(9) 0x8C80DB0749527D5793f0c15d2c921439B7685D45 (1000 ETH)
-(10) 0xbfFd8c83e2f2D8da1CF602e2EEB6090f173ffa7D (1000 ETH)
-(11) 0x7d49dAD88888b6ae983aeB79215F169c9562C4c0 (1000 ETH)
-(12) 0xAa0b485DD067c1FaAA4D576fD8d33E9efdd52A1C (1000 ETH)
-(13) 0xB07692B290BDf5A4316D9dAe4e010943ab0Dd315 (1000 ETH)
-(14) 0xF8921aD71925Cd074447f49537eEa31b214cD18E (1000 ETH)
-(15) 0xE82b435cEE98d8E0c01D546Dd77b0Cf251747484 (1000 ETH)
-(16) 0x3530736ae543AAf7f25d88223a318b7d06aE658c (1000 ETH)
-(17) 0xA4cCf8c849FCb67BB405dC3f8466a007aD6A4342 (1000 ETH)
-(18) 0x35818D06ca25e6a33107e24E83c6bc54B2765fF8 (1000 ETH)
-(19) 0x0186e0C97F0F05222cB6bA7303f176fc40D145A1 (1000 ETH)
+
 
 Private Keys
 ==================
@@ -167,20 +92,6 @@ Private Keys
 (3) 0x8ab686ec316e15671f09cceaf463d8d2bca58d87852f7f245aef86a787834abc
 (4) 0x5263a193a48c089e9320320bac29b0fbd89c3e1abc5e8c3bc938b87dd4e4de15
 (5) 0xc1a2ac12f6560e32fcac5ab7631bd6282c20e2b37abd307ed29ab033db3b1584
-(6) 0xdf6a761d07a100a1ab5ddbe3c71ea4a042646f70d5bd7bf859d41390b0dd535f
-(7) 0x2571e1f4956c24cf6dab506f6dfcbd3b05cb86088a60a84927dd3898b64fcc10
-(8) 0xf0f5a30851e130f9c883fbfffed41d12f9d542cd1353ee9ba4c7557db5b09089
-(9) 0xceb14f2b1984378acce993c29e189e730c2595f17b2727a3287e3abd425ec268
-(10) 0x6c9671e0692c294518d00606db9b66f2f6bdcfb1aff85cd908ab355d62fbf14e
-(11) 0x585e742f3a8780f6f24050e7623502e49a39605b6525e592ef7ab17422ffc624
-(12) 0x5d5aec7f762bef35727193cfb492ee791b06a59994b7856984909c9f9ff5b6ad
-(13) 0xaf8bf1157aa701f5278070635de57345749c5f6f66618de07c6ce6ca6ac8801c
-(14) 0x54f11f5e6d60a3a3f60e89b3ff63d58f53fc23a209d5427fefaa818ba6042215
-(15) 0x4325517bfc16bc6135140953bba247c72adb3acde5c6e76a1736d9d5570e8a66
-(16) 0xea08268b924d73289d1131de32100a672c11d14b2d867fcb86fc99eea954de88
-(17) 0xbfa6257746cf8a07e98a2a0baa82b3d942aa75746e5d1656ce661d5adb0b4342
-(18) 0xaca8ac2a67d7ed6102cd59b7da7af400f80ea27aee948a8a4cddfb37b49e8a1a
-(19) 0x3c470666ffa95b900b8c3246bc87f85058d38bbd6cc74a40c3ea42b5c4f8f821
 
 HD Wallet
 ==================
@@ -200,3 +111,235 @@ Call Gas Limit
 9007199254740991
 
 Listening on 127.0.0.1:8545
+```
+
+### Connect Metamask to your local Ethereum Blockchain
+- Install Metamask in your web browser
+- Connect Metamask to your local Ethereum Blockchain
+![image](./docs/figures/metamask-network.png)
+- Import the private keys of the accounts generated by Ganache UI or ganache-cli
+After import, you should see the account information. 
+![image](./docs/figures/metamask-account.png)
+
+### Setup IPFS Storage
+
+- Install IPFS on your local machine 
+Link to download IPFS  ![IPFS](https://docs.ipfs.tech/install/command-line/#system-requirements)
+For Ubuntu OS, just run : 
+```bash
+wget https://dist.ipfs.tech/kubo/v0.20.0/kubo_v0.20.0_linux-amd64.tar.gz
+tar -xvzf kubo_v0.20.0_linux-amd64.tar.gz
+cd kubo
+sudo bash install.sh
+ipfs --version
+```
+You can find the detail instructions for your OS in the link above. 
+
+- Start IPFS daemon
+```bash
+ipfs init
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://localhost:3000"]'
+ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST", "GET"]'
+ipfs daemon
+```
+
+- Add your file to IPFS 
+```bash
+ipfs add <your file>
+```
+example, 
+```bash
+ipfs add ./gallery/nft1.jpg
+
+added QmZNEyAxoq55x3jZofjmCdqG1ujpYaKh8TGNhLjdkwiHqz nft1.jpeg
+ 31.87 KiB / 31.87 KiB [================================================] 100.00%>
+
+ipfs add ./gallery/nft2.jpg
+
+added QmRuJJT9cqVJvxMukG56WtEBbgbTQrknpWXyHTvDN41guf nft2.jpg
+ 50.52 KiB / 50.52 KiB [================================================] 100.00%
+
+ipfs add ./gallery/nft3.jpg
+
+added QmS7XWuQd8pNPGMEpkTkhft3k5gCCc7TUZzVXQpXcSGj8B nft3.jpg
+ 176.41 KiB / 176.41 KiB [==============================================] 100.00%
+```
+
+- Get the hash of your file
+```bash
+ipfs cat <hash of your file>
+```
+
+### Compile and Deploy the Smart Contract to your local Ethereum Blockchain
+- Compile the smart contract
+```bash
+truffle compile
+```
+The output looks like 
+```bash
+Compiling your contracts...
+===========================
+> Compiling ./contracts/MyNFT.sol
+> Compiling @openzeppelin/contracts/access/Ownable.sol
+> Compiling @openzeppelin/contracts/token/ERC721/ERC721.sol
+> Compiling @openzeppelin/contracts/token/ERC721/IERC721.sol
+> Compiling @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
+> Compiling @openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol
+> Compiling @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
+> Compiling @openzeppelin/contracts/utils/Address.sol
+> Compiling @openzeppelin/contracts/utils/Context.sol
+> Compiling @openzeppelin/contracts/utils/Counters.sol
+> Compiling @openzeppelin/contracts/utils/Strings.sol
+> Compiling @openzeppelin/contracts/utils/introspection/ERC165.sol
+> Compiling @openzeppelin/contracts/utils/introspection/IERC165.sol
+> Compiling @openzeppelin/contracts/utils/math/Math.sol
+> Artifacts written to /home/ngu202/workspace/nft-minting-tutorial/build/contracts
+> Compiled successfully using:
+   - solc: 0.8.19+commit.7dd6d404.Emscripten.clang
+```
+If there is any error, you should fix it before going to the next step..
+
+- Deploy the smart contract to your local Ethereum Blockchain
+```bash
+truffle migrate
+```
+The output looks like 
+```bash
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      1337
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_mynft_migration.js
+====================
+
+   Replacing 'MyNFT'
+   -----------------
+   > transaction hash:    0x034ae890073b5e61e50a3fa50e30f9505bf363cef503689980e985be143241a0
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x17f713aC25039abbfFc34354d3084FC2183b49d5
+   > block number:        1
+   > block timestamp:     1685989845
+   > account:             0x8dE930dbAd0D99759Db57C2F906010f87D4185FF
+   > balance:             999.93683094
+   > gas used:            3158453 (0x3031b5)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.06316906 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.06316906 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.06316906 ETH
+```
+
+Meanwhile, if you check in the ganache-cli console, there will  be a transaction crated as : 
+```bash
+  Transaction: 0x804493fea685ba2270aa45f372150488edc7d1d349c37e8cf25d03156ca20b4d
+  Contract created: 0x80d09df430fd965e644ddb8925374f49a73d44e5
+  Gas usage: 3191316
+  Block Number: 12
+  Block Time: Mon Jun 05 2023 18:43:32 GMT+0000 (Coordinated Universal Time)
+```
+
+In which: 
+- Replacing 'MyNFT': This line indicates that the 'MyNFT' contract is being deployed. If a contract of the same name was already deployed, it's being replaced with this new one.
+- Transaction hash: This is the unique identifier of the transaction that was generated when the contract was deployed. 
+- The smart contract is deployed to the address `0x17f713aC25039abbfFc34354d3084FC2183b49d5`
+- The account `0x8dE930dbAd0D99759Db57C2F906010f87D4185FF` is the owner of the smart contract.  This an important value that you would use to interact with your contract.
+- Block number: This is the number of the block in which the contract deployment transaction was included.
+- Block timestamp: The timestamp of when the block was mined.
+- Account: The address of the account that deployed the contract.
+- Balance: The balance of the account that deployed the contract, after the contract was deployed.
+- Gas used: This is the total amount of "gas" that was used in the process. In Ethereum, "gas" refers to the computational work required to do a transaction or smart contract operation.
+- Gas price: The price you're paying for each unit of gas, in gwei. The total transaction cost is gas used times gas price.
+- Value sent: The value sent along with the transaction, in this case, is 0 ETH.
+- Total cost: The total cost of the transaction, in ETH.
+- Saving artifacts: Artifacts are a way of storing contract abstractions for easy use later. An artifact includes important information about the contract like the contract's deployed address and Application Binary Interface (ABI). The ABI is like a list of methods and variables that you can call on your contract.
+- Total deployments: The total number of contract deployments executed in this migration.
+- Final cost: The total cost of all contract deployments in this migration.
+
+### test the smart contract
+```bash
+truffle test
+```
+The output looks like 
+```bash
+Using network 'development'.
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+  Contract: MyNFT
+    ✔ should mint a new NFT (222ms)
+    ✔ should fail when minting a token with a URI that already exists (632ms)
+    ✔ should deposit ETH (60ms)
+    ✔ should withdraw all ETH (117ms)
+
+
+  4 passing (2s)
+```
+
+### Deposit ETH to the smart contract
+```bash
+node src/utils/depositEthereum.js
+```
+The output looks like 
+```bash
+  transactionHash: '0xd0523aed266b475b891162382d57ffb564ebcbd32bebd972bbbc0305a8f71dc5',
+  transactionIndex: 0,
+  blockHash: '0xefbb664f81346beea248de83d464b242f4768bdfc3fcc42a978f84899531845c',
+  blockNumber: 2,
+  from: '0x8de930dbad0d99759db57c2f906010f87d4185ff',
+  to: '0x17f713ac25039abbffc34354d3084fc2183b49d5',
+  gasUsed: 21316,
+  cumulativeGasUsed: 21316,
+  contractAddress: null,
+  status: true,
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  events: {}
+}
+```
+
+## Client side
+
+### Install dependencies
+```bash 
+cd client
+npm install
+npm start
+```
+You can see the dashboard as below: 
+![dashboard](./docs/figures/front-end.png)
+
+
+http://localhost:8080/ipfs/QmZNEyAxoq55x3jZofjmCdqG1ujpYaKh8TGNhLjdkwiHqz
+
+Set your inputs as below:
+![dashboard](./docs/figures/input-dashboard.png)
+
+Click on the `Mint` button, you will see the transaction is created as below:
+![dashboard](./docs/figures/nft-minted.png)
+
+## Run
+
+https://github.com/ipfs-shipyard/ipfs-primer/blob/12d7298f436fa83e8395ade6969d2a4df298b334/install-ipfs/lessons/download-and-install.md
+
+
+## References
+- https://docs.openzeppelin.com/learn/developing-smart-contracts
+- https://docs.openzeppelin.com/learn/deploying-and-interacting

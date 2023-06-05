@@ -183,7 +183,7 @@ const Minter = (props) => {
             <ul>
                 {mintedTokens.map((token, index) => (
                     <li key={index}>
-                        <p>{token.uri}</p> {/* You can customize this based on the structure of your tokens */}
+                        <p>Token URI: {token.uri}</p> {/* You can customize this based on the structure of your tokens */}
                         <img src={token.image} width="250" height="250" /> {/* Change size as needed */}
                     </li>
                 ))}
