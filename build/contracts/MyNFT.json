@@ -24673,12 +24673,12 @@
         }
       },
       "links": {},
-      "address": "0x17f713aC25039abbfFc34354d3084FC2183b49d5",
-      "transactionHash": "0x034ae890073b5e61e50a3fa50e30f9505bf363cef503689980e985be143241a0"
+      "address": "0xF19A427c49F8f856ef171d376BC1554c4DB7Ab17",
+      "transactionHash": "0x5c6f357dc39d834154daa4c065a98c4108d896a8861f562bd774ad7e970d5f6f"
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-06T01:53:51.988Z",
+  "updatedAt": "2023-06-06T06:46:56.459Z",
   "networkType": "ethereum",
   "devdoc": {
     "events": {

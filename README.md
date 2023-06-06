@@ -41,10 +41,12 @@ cd client
 npm install 
 npm start 
 ```
-- Install dependencies
+- to the root repository, install dependencies
 ```bash
 npm install 
+npm install @openzeppelin/contracts
 ```
+
 
 ### Create your first Ethereum Blockchain using Ganache UI or ganache-cli
 - Download and install Ganache UI or ganache-cli from https://www.trufflesuite.com/ganache
