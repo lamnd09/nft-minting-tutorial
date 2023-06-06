@@ -115,7 +115,8 @@ After import, you should see the account information.
 ### Setup IPFS Storage
 
 - Install IPFS on your local machine 
-Link to download IPFS  ![IPFS](https://docs.ipfs.tech/install/command-line/#system-requirements)
+Link to download IPFS  https://docs.ipfs.tech/install/command-line/#install-official-binary-distributions
+
 For Ubuntu OS, just run : 
 ```bash
 wget https://dist.ipfs.tech/kubo/v0.20.0/kubo_v0.20.0_linux-amd64.tar.gz
