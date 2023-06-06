@@ -59,7 +59,7 @@ ganache-cli --help
 
 next, in order to create a local Ethereum Blockchain, run 
 ```bash
-ganache-cli
+ganache-cli -a 20 -e 1000  -m "test test test test test test test test test test test okay" -i 1337
 ```
 You should see the output as below: 
 
