@@ -4,6 +4,8 @@ import { connectWallet, getCurrentWalletConnected, mintNFT } from "./utils/inter
 import Web3 from "web3";
 import getRewardBalance from "./utils/getRewardBalance";
 import getMintedTokens from "./utils/getMintedTokens";
+import getAccountBalance from "./utils/getAccountBalance";
+
 
 const Minter = (props) => {
 
@@ -86,13 +88,6 @@ const Minter = (props) => {
         setRewardBalance(rewardBalance);
 
     }, []);
-
-    async function getAccountBalance(address) {
-        const web3 = new Web3(window.ethereum);
-        const balanceInWei = await web3.eth.getBalance(address);
-        const balanceInEther = web3.utils.fromWei(balanceInWei, "ether");
-        return balanceInEther;
-    }
 
     const connectWalletPressed = async () => { //TODO: implement
         const walletResponse = await connectWallet();

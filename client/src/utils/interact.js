@@ -1,6 +1,7 @@
 
 import getMintedTokens from "./getMintedTokens";
 import getRewardBalance from "./getRewardBalance";
+import getAccountBalance from "./getAccountBalance";
 import uploadToIPFS from './ipfs.js';
 
 const Web3 = require('web3');

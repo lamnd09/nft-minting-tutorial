@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const web3 = new Web3('http://127.0.0.1:8545'); // replace with your Infura Project ID
+const web3 = new Web3('http://localhost:8545'); // replace with your Infura Project ID
 
 // Your account private key and the contract address
 const privateKey = '0xaefcaad212aba1ac9c96f94f5dcef495467fb745179976fbe31711bc559fedcf';

@@ -163,9 +163,10 @@ added QmS7XWuQd8pNPGMEpkTkhft3k5gCCc7TUZzVXQpXcSGj8B nft3.jpg
  176.41 KiB / 176.41 KiB [==============================================] 100.00%
 ```
 
-- Get the hash of your file
+- you can access the file from IPFS by using the hash of the file, open your web browser: `http://localhost:8080/ipfs/<hash of the file>`
 ```bash
-ipfs cat <hash of your file>
+http://localhost:8080/ipfs/QmZNEyAxoq55x3jZofjmCdqG1ujpYaKh8TGNhLjdkwiHqz
+```
 ```
 
 ### Compile and Deploy the Smart Contract to your local Ethereum Blockchain

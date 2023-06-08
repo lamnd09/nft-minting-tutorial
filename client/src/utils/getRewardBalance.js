@@ -6,7 +6,9 @@ async function getRewardBalance(userAddress) {
     const web3 = new Web3('http://localhost:8545');
 
     // Get the contract instance
-    const contractAddress = '0x17f713aC25039abbfFc34354d3084FC2183b49d5';
+    let contractAddress = '0x17f713aC25039abbfFc34354d3084FC2183b49d5';
+    contractAddress= web3.utils.toChecksumAddress(contractAddress)
+
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     try {
