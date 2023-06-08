@@ -1,4 +1,5 @@
 # Tutorial: NFT-minting-tutorial
+## Feel free to create issues and PR for the completed solution. 
 A tutorial for designing full-stack Non-Fungible Token (NFT) minting application.
 
 ## Prerequisites
