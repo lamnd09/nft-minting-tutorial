@@ -2,6 +2,9 @@
 ## Feel free to create issues and PR for the completed solution. 
 A tutorial for designing full-stack Non-Fungible Token (NFT) minting application.
 
+## For beginning
+- I would recommend you download [VScode IDE](https://code.visualstudio.com/) and open termnial to complete below steps.
+
 ## Prerequisites
 - Node.js ^v16.20.0
 - Metamask
