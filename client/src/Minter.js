@@ -48,8 +48,11 @@ const Minter = (props) => {
                     setWallet(accounts[0]);
                     setStatus("👆🏽 Write a message in the text-field above.");
                     // Fetch and update the account balance
-                    const balance = getAccountBalance(accounts[0]);
-                    setBalance(balance);
+                     getAccountBalance(accounts[0]).then((balance)=>{
+                        setBalance(balance)})
+                    .catch((error)=>{
+                        console.error(error)
+                    })
 
                 } else {
                     setWallet("");
